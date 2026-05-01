@@ -1,0 +1,78 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --cream: #f7f3ec; --ink: #1a1610; --ink-mid: #3d3528; --ink-light: #6a5f4f;
+  --page: #faf8f2; --page-warm: #f2ede3; --gold: #c5973a; --bg: #2a2520;
+}
+html { scroll-behavior: auto; }
+body { background: var(--bg); font-family: 'EB Garamond', Georgia, serif; overflow-x: hidden; }
+#scroll-canvas { position: relative; }
+#sticky-wrap {
+  position: sticky; top: 0; height: 100vh;
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+}
+#stack { position: relative; width: 520px; height: 900px; }
+.card {
+  position: absolute; top: 0; left: 0;
+  width: 720px; min-height: 900px;
+  background: var(--page); padding: 60px 70px 52px 70px;
+  display: flex; flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 6px 16px rgba(0,0,0,0.3);
+  will-change: transform; backface-visibility: hidden; opacity: 1;
+}
+
+.poem-body .keep-spaces {
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+/* illustration placeholder — bottom right of every content card */
+.illus {
+  position: absolute;
+  bottom: 28px;
+  right: 32px;
+  width: 88px;
+  height: 88px;
+  border: 1px dashed #ccc0a8;
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  color: #ccc0a8;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: 'EB Garamond', serif;
+  background: rgba(0,0,0,0.02);
+  pointer-events: none;
+  user-select: none;
+}
+.card-cover {
+  background: var(--ink); align-items: center; justify-content: center;
+  gap: 22px; min-height: 900px;
+}
+.cover-title { font-size: 15px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--cream); text-align: center; line-height: 1.7; font-weight: 400; }
+#moon-circle { width: 210px; height: 210px; border-radius: 50%; background: #000; border: 1px solid #2a2520; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; }
+#ascii-scene { font-family: 'Courier New', monospace; font-size: 10.5px; color: #fff; line-height: 1.35; white-space: pre; text-align: center; letter-spacing: 0.05em; }
+.cover-author { font-size: 13px; letter-spacing: 0.22em; color: #7a7060; font-style: italic; text-align: center; }
+.page-num { font-size: 12.5px; color: #909caa; letter-spacing: 0.14em; text-align: center; margin-bottom: 32px; }
+.poem-title { font-size: 12.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink); margin-bottom: 32px; }
+.poem-body { font-size: 17px; line-height: 2.1; color: var(--ink-mid); font-style: italic; flex: 1;}
+.poem-body p { margin-bottom: 26px; }
+.poem-body p:last-child { margin-bottom: 0; }
+.ornament { color: var(--gold); font-size: 14px; margin-top: 26px; letter-spacing: 0.4em; opacity: 0.8; }
+.rule { border: none; border-top: 1px solid #ddd5c0; margin: 20px 0; width: 50%; }
+.card-epigraph { background: var(--page-warm); align-items: flex-start; justify-content: center; min-height: 900px; }
+.epigraph-text { font-size: 19px; font-style: italic; color: var(--ink-light); line-height: 1.9; }
+.toc-label { font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--ink); margin-bottom: 28px; }
+.toc-entry { display: flex; align-items: baseline; margin-bottom: 14px; font-size: 17px; color: var(--ink-mid); }
+.toc-name { font-style: italic; }
+.toc-dots { flex: 1; border-bottom: 1px dotted #ccc5b0; margin: 0 8px 4px; }
+.toc-pg { font-size: 13px; color: #9a9080; }
+.thanks-body { font-size: 18px; line-height: 2.1; color: var(--ink-mid); font-style: italic; flex: 1; }
+.thanks-body p { margin-bottom: 24px; }
+#dots {
+  position: fixed; right: 28px; top: 50%; transform: translateY(-50%);
+  display: flex; flex-direction: column; gap: 8px; z-index: 999;
+  opacity: 0; transition: opacity 0.4s;
+}
+#dots.show { opacity: 1; }
+.dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.25); transition: background 0.3s, transform 0.3s; }
+.dot.active { background: rgba(255,255,255,0.85); transform: scale(1.4); }
