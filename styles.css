@@ -13,8 +13,8 @@ body { background: var(--bg); font-family: 'EB Garamond', Georgia, serif; overfl
 #stack { position: relative; width: 520px; height: 900px; }
 .card {
   position: absolute; top: 0; left: 0;
-  width: 720px; min-height: 900px;
-  background: var(--page); padding: 60px 70px 52px 70px;
+  width: 800px; min-height: 1000px;
+  background: var(--page); padding: 60px 70px 62px 90px;
   display: flex; flex-direction: column;
   box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 6px 16px rgba(0,0,0,0.3);
   will-change: transform; backface-visibility: hidden; opacity: 1;
